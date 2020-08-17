@@ -1,0 +1,25 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<form class="" action="index.html" method="post">
+
+  {{myFilter.form}}
+
+</form>
+
+<<table>
+  <th>User</th>
+  <th>email</th>
+  <th>Name</th>
+
+    <tr>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.First_name}}</td>
+    </tr>
+
+</table>
+
+
+{% endblock %}

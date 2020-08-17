@@ -1,0 +1,58 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<div class="row">
+
+  <div class="col">
+
+    <div class="card card-body">
+
+      <form class="" action="index.html" method="POST">
+        {{myFilter.form}}
+        <button class="btn btn-primary" type="submit">Search</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-md">
+
+    <div class="card card-body">
+
+      <table class="table table-sm">
+        <tr>
+          <th>UserName</th>
+          <th>First Name</th>
+          <th>Last NAME</th>
+          <th>email</th>
+          <th>phone</th>
+        </tr>
+
+        {% for item in user %}
+          <tr>
+            <td>{{item.username}}</td>
+            <td>{{item.First_name}}</td>
+            <td>{{item.Last_name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phone}}</td>
+          </tr>
+
+        {% endfor %}
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+{% endblock %}
