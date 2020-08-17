@@ -6,20 +6,24 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import *
-from .forms import RegisterForm, CreateUserForm
+from .forms import UpdateUserForm, CreateUserForm
 from .filters import UserFilter
 
 # Create your views here.
 @login_required(login_url='login')
 def home(request):
-    return render(request, 'accounts/dashboard.html')
+    loggedin = request.user.username
+    context = {'loggedin': loggedin}
+    return render(request, 'accounts/dashboard.html', context)
     # return HttpResponse('Dashboard')
 
 
 @login_required(login_url='login')
 def profile(request, pk_user):
+    loggedin = request.user.username
+    context = {'loggedin': loggedin}
     user = UserInfo.objects.get(username=pk_user)
-    context = {'user':user}
+    context = {'user':user, 'loggedin':loggedin}
     return render(request, 'accounts/profile.html', context)
 
 
@@ -46,32 +50,6 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
-# def saveFunc(user, email):
-#     useri = UserInfo(username=user, email=email)
-#     useri.save()
-#     userc = UserContact(username=user)
-#     userc.save()
-#     userd = UserDetails(username=user)
-#     userd.save()
-#     users = UserSkills(username=user)
-#     users.save()
-#     usere = UserExperiences(username=user)
-#     usere.save()
-#     userp = UserProjects(username=user)
-#     userp.save()
-#     useru = UserAchievements(username=user)
-#     useru.save()
-#     userg = UserGoal(username=user)
-#     userg.save()
-#     userpa = UserPassion(username=user)
-#     userpa.save()
-#     usersc = UserSchool(username=user)
-#     usersc.save()
-#     userco = UserCollege(username=user)
-#     userco.save()
-#     userun = UserUniversity(username=user)
-#     userun.save()
-
 
 
 def register(request):
@@ -84,11 +62,15 @@ def register(request):
             form = CreateUserForm(request.POST)
             if form.is_valid():
                 form.save()
+                messages.info(request, 'register successfull')
                 user = form.cleaned_data.get('username')
-                user = form.cleaned_data.get('email')
+                email = form.cleaned_data.get('email')
                 # saveFunc(user, email)
+                newuser = UserInfo(username=user, email=email)
+                newuser.save()
 
-                redirect('login')
+                return redirect('login')
+
 
         context = {'form':form}
         return render(request, 'accounts/register.html', context)
@@ -96,27 +78,33 @@ def register(request):
 
 @login_required(login_url='login')
 def update(request, pk_user):
-    if request.user.username == pk_user:
+    loggedin = request.user.username
+    if loggedin == pk_user:
         user = UserInfo.objects.get(username=pk_user)
-        form = RegisterForm(instance=user)
+        form = UpdateUserForm(instance=user)
         if request.method == 'POST':
-            form = RegisterForm(request.POST, instance=user)
-            if form.is_valid():
-                form.save()
-                return redirect('/')
-        context = {'form':form}
+            form = UpdateUserForm(request.POST, instance=user)
+            form.save()
+            messages.info(request, 'update successfull')
+            return redirect('home')
+
+        context = {'form':form, 'loggedin': loggedin}
         return render(request, 'accounts/update.html', context)
     else:
+        user = UserInfo.objects.get(username=pk_user)
+        context = {'user':user, 'loggedin':loggedin}
+        messages.info(request, 'Not allowed')
         return redirect('home')
 
 
 @login_required(login_url='login')
 def searchlist(request):
+    loggedin = request.user.username
     user = UserInfo.objects.all()
     # user = order
     myFilter = UserFilter(request.GET, queryset = user)
     user = myFilter.qs
 
-    context = {'user':user,'myFilter':myFilter}
+    context = {'user':user,'myFilter':myFilter, 'loggedin':loggedin}
 
     return render(request, 'accounts/searchlist.html', context)

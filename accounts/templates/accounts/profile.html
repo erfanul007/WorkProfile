@@ -2,24 +2,61 @@
 
 {% block content %}
 
-<form class="" action="index.html" method="post">
 
-  {{myFilter.form}}
 
-</form>
+<section>
+  <img src="{{user.profile_pic}}" alt="">
+</section>
 
-<<table>
-  <th>User</th>
-  <th>email</th>
-  <th>Name</th>
+<section>
+  <h4>Basic Inuseration</h4>
+  <p>
+    Name: {{user.Nationality}} {{user.Last_name}} <br>
+    Work Field: {{user.workFeild}} <br>
+    Email: {{user.email}} <br>
+    Phone: {{user.phone}} <br>
+  </p>
 
-    <tr>
-      <td>{{user.username}}</td>
-      <td>{{user.email}}</td>
-      <td>{{user.First_name}}</td>
-    </tr>
+  <p>{{user.aboutme}}</p>
+</section>
 
-</table>
+<section>
+  <h4>Education</h4>
+  <p>
+    School Name: {{user.First_name}} <br>
+    Passing Year: {{user.workFeild}} <br>
+    Board : {{user.schoolBoard}}
+    GPA: {{user.email}} <br>
+  </p>
+  <p>
+    College Name: {{user.First_name}} <br>
+    Passing Year: {{user.workFeild}} <br>
+    Group : {{user.collegegroup}} <br>
+    Board : {{user.schoolBoard}}
+    GPA: {{user.email}} <br>
+  </p>
+  <p>
+    University Name: {{user.First_name}} <br>
+    Degree : {{user.First_name}} <br>
+    Passing Year: {{user.workFeild}} <br>
+    Subject : {{user.collegegroup}} <br>
+    CGPA: {{user.email}} <br>
+  </p>
+</section>
+
+
+<section>
+  <h4>Work Experience</h4>
+  <p>
+    School Name: {{user.First_name}} <br>
+    Passing Year: {{user.workFeild}} <br>
+    Board : {{user.schoolBoard}}
+    GPA: {{user.email}} <br>
+  </p>
+</section>
+
+
+
 
 
 {% endblock %}

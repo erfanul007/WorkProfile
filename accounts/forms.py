@@ -4,10 +4,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 
-class RegisterForm(ModelForm):
+class UpdateUserForm(ModelForm):
     class Meta:
         model = UserInfo
-        fields = ['username']
+        fields = '__all__'
+        exclude = ('username', 'date_created')
 
 class CreateUserForm(UserCreationForm):
     class Meta:
