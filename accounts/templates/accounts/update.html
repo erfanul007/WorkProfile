@@ -2,15 +2,111 @@
 
 {% block content %}
 
+
 <div class="d-flex justify-content-center form_container">
 
 	<form method="POST" action="">
 		{% csrf_token %}
-			Name: {{form.First_name}}
-			{{form.profile_pic}}
+
+			<section>
+				<h4>Basic Inuseration</h4>
+				<p>
+				  Name: {{form.First_name}} {{form.Last_name}} <br><br>
+				  Email: {{form.email}} <br><br>
+				  Phone: {{form.phone}} <br><br>
+				  Nationality: {{form.Nationality}} <br><br>
+				  Current Address: {{form.CurrentAddress}} <br><br>
+				  Permanent Address: {{form.PermanentAddress}} <br><br>
+				  Work Feild: {{form.workFeild}} <br><br>
+				  Zip Code: {{form.ZipCode}} <br><br>
+
+				  Marital Status: {{form.marital_status}} <br><br>
+				  Mender: {{form.gender}} <br><br>
+				  Religion: {{form.religion}} <br><br>
+				  Blood Group: {{form.blood_group}} <br><br>
+				  Age: {{form.age}} <br><br>
+				</p>
+
+
+			  </section>
+
+			  <section>
+				<h4>Education</h4>
+				<p>
+				  School Name: {{form.schoolName}} <br><br>
+				  School Passing Year: {{form.school_passing_year}} <br><br>
+				  School Board: {{form.schoolBoard}} <br><br>
+				  School GPA: {{form.schoolGPA}} <br><br>
+				</p>
+
+				<p>
+				  College Name: {{form.collegeName}} <br><br>
+				  College Group: {{form.collegegroup}} <br><br>
+				  College Passing Year: {{form.college_passing_year}} <br><br>
+				  College Board: {{form.collegeBoard}} <br><br>
+				  College GPA: {{form.collegeGPA}} <br><br>
+				</p>
+
+				<p>
+				  Univarsity name: {{form.varsityname}} <br><br>
+				  Univarsity degree: {{form.varistydegree}} <br><br>
+				  Univarsity feild: {{form.varsityfeild}} <br><br>
+				  Univarsity Passing Year: {{form.varsity_passing_year}} <br><br>
+				  Univarsity CGPA: {{form.varsity_CGPA}} <br><br>
+
+				</p>
+			  </section>
+
+			  <section>
+				<h4> Skills </h4>
+				<p>
+				  Skill name: {{form.skillname}} <br><br>
+				  Skill details: {{form.skilldetails}} <br><br>
+				</p>
+			  </section>
+
+
+			  <section>
+				<h4>Work Experience</h4>
+				<p>
+				  Previous Work Title: {{form.previousWorkTitle}} <br><br>
+				  Company Name: {{form.CompanyName}} <br><br>
+				  Previous Work details: {{form.previousWorkdetails}} <br><br>
+				</p>
+			  </section>
+
+			  <section>
+				<h4>Project and Achcievement</h4>
+				<p>
+				  Project Title: {{form.ProjectTitle}} <br><br>
+				  project usededenv: {{form.projectusededenv}} <br><br>
+				  project details: {{form.projectdetails}} <br><br>
+				  Achcieveprize: {{form.achcieveprize}} <br><br>
+				  Achievefield: {{form.achievefield}} <br><br>
+				  Achieveetails: {{form.achieveetails}} <br><br>
+				</p>
+			  </section>
+
+			  <section>
+				<h4>Goal and Passion</h4>
+				<p>
+				  Goal topic: {{form.goaltopic}} <br><br>
+				  Goal details: {{form.goaldetails}} <br><br>
+				  Passion topic: {{form.passiontopic}} <br><br>
+				  Passion details: {{form.passiondetails}} <br><br>
+				</p>
+			  </section>
+
+			  <section>
+				<h4>About me</h4>
+				<p>
+				  <p>{{form.aboutme}}</p>
+				</p>
+			  </section>
+
 
 			<div class="d-flex justify-content-center mt-3 login_container">
-			<input type="submit" value="Register Account">
+			<input type="submit" value="Update Account">
 			</div>
 
 	</form>

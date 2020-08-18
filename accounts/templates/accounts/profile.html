@@ -4,43 +4,65 @@
 
 
 
+<div class="inge">
 <section>
-  <img src="{{user.profile_pic}}" alt="">
+  <p><img src="{{user.profile_pic}}" alt=""></p>
 </section>
 
 <section>
-  <h4>Basic Inuseration</h4>
+  <h4>Basic Information</h4>
   <p>
-    Name: {{user.Nationality}} {{user.Last_name}} <br>
-    Work Field: {{user.workFeild}} <br>
-    Email: {{user.email}} <br>
+    Name: {{user.First_name}} {{user.Last_name}}<br>
+    Email: {{user.email}}<br>
     Phone: {{user.phone}} <br>
+    Nationality: {{user.Nationality}} <br>
+    Current Address: {{user.CurrentAddress}} <br>
+    Permanent Address: {{user.PermanentAddress}} <br>
+    Work Feild: {{user.workFeild}} <br>
+    Zip Code: {{user.ZipCode}} <br>
+
+    Marital Status: {{user.marital_status}} <br>
+    Mender: {{user.gender}} <br>
+    Religion: {{user.religion}} <br>
+    Blood Group: {{user.blood_group}} <br>
+    Age: {{user.age}} <br>
   </p>
 
-  <p>{{user.aboutme}}</p>
+
 </section>
 
 <section>
   <h4>Education</h4>
   <p>
-    School Name: {{user.First_name}} <br>
-    Passing Year: {{user.workFeild}} <br>
-    Board : {{user.schoolBoard}}
-    GPA: {{user.email}} <br>
+    School Name: {{user.schoolName}} <br>
+    School Passing Year: {{user.school_passing_year}} <br>
+    School Board: {{user.schoolBoard}} <br>
+    School GPA: {{user.schoolGPA}} <br>
   </p>
+
   <p>
-    College Name: {{user.First_name}} <br>
-    Passing Year: {{user.workFeild}} <br>
-    Group : {{user.collegegroup}} <br>
-    Board : {{user.schoolBoard}}
-    GPA: {{user.email}} <br>
+    College Name: {{user.collegeName}} <br>
+    College Group: {{user.collegegroup}} <br>
+    College Passing Year: {{user.college_passing_year}} <br>
+    College Board: {{user.collegeBoard}} <br>
+    College GPA: {{user.collegeGPA}} <br>
   </p>
+
   <p>
-    University Name: {{user.First_name}} <br>
-    Degree : {{user.First_name}} <br>
-    Passing Year: {{user.workFeild}} <br>
-    Subject : {{user.collegegroup}} <br>
-    CGPA: {{user.email}} <br>
+    Univarsity name: {{user.varsityname}} <br>
+    Univarsity degree: {{user.varistydegree}} <br>
+    Univarsity feild: {{user.varsityfeild}} <br>
+    Univarsity Passing Year: {{user.varsity_passing_year}} <br>
+    Univarsity CGPA: {{user.varsity_CGPA}} <br>
+
+  </p>
+</section>
+
+<section>
+  <h4> Skills </h4>
+  <p>
+    Skill name: {{user.skillname}} <br>
+    Skill details: {{user.skilldetails}} <br>
   </p>
 </section>
 
@@ -48,13 +70,43 @@
 <section>
   <h4>Work Experience</h4>
   <p>
-    School Name: {{user.First_name}} <br>
-    Passing Year: {{user.workFeild}} <br>
-    Board : {{user.schoolBoard}}
-    GPA: {{user.email}} <br>
+    Previous Work Title: {{user.previousWorkTitle}} <br>
+    Company Name: {{user.CompanyName}} <br>
+    Previous Work details: {{user.previousWorkdetails}} <br>
   </p>
 </section>
 
+<section>
+  <h4>Project and Achcievement</h4>
+  <p>
+    Project Title: {{user.ProjectTitle}} <br>
+    project usededenv: {{user.projectusededenv}} <br>
+    project details: {{user.projectdetails}} <br>
+    <br> <br>
+    Achcieveprize: {{user.achcieveprize}} <br>
+    Achievefield: {{user.achievefield}} <br>
+    Achieveetails: {{user.achieveetails}} <br>
+  </p>
+</section>
+
+<section>
+  <h4>Goal and Passion</h4>
+  <p>
+    Goal topic: {{user.goaltopic}} <br>
+    Goal details: {{user.goaldetails}} <br>
+
+    <br><br>
+    Passion topic: {{user.passiontopic}} <br>
+    Passion details: {{user.passiondetails}} <br>
+  </p>
+</section>
+
+<section>
+  <h4>About me</h4>
+    <p>{{user.aboutme}}</p>
+</section>
+
+</div>
 
 
 
